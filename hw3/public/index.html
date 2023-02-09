@@ -1,0 +1,93 @@
+<!Dylan Price; January 31, 2023>
+    <!DOCTYPE html>
+    <html>
+
+    <body>
+
+        <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/></script>
+            <script src="javascripts/stuff.js"></script>
+        </head>
+
+        <link rel="stylesheet" href="stylesheets/priced24.css">
+        <h1>Cheesecake Order Form</h1>
+        <img src="https://www.cookingclassy.com/wp-content/uploads/2019/11/cheesecake-8.jpg" alt="Cheesecake Slice"
+            width="300" height="400">
+        <div id="to-clear">
+            <div id="background2">
+                <! one row, two column table to orient quantity and list of toppings>
+                    <p>Quantity Topping</p>
+                    <table>
+                        <td>
+                            <!number of cheesecakes>
+                                <select name="Quantity" id="count">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                        </td>
+                        <td>
+                            <!list of toppings>
+                                <form style="display:inline;">
+                                    <input type="radio" id="topping1" name="topping" value="Plain" checked>
+                                    <label for="age1">Plain</label><br>
+                                    <input type="radio" id="topping2" name="topping" value="Cherry">
+                                    <label for="age2">Cherry</label><br>
+                                    <input type="radio" id="topping3" name="topping" value="Chocolate">
+                                    <label for="age3">Chocolate</label><br>
+                                </form>
+                        </td>
+                    </table><br>
+                    <label for="notes">Notes:</label><br>
+                    <!input text area for user to add any additional order notes>
+                        <textarea id="notes" name="textnotes" rows="4" cols="50"
+                            placeholder="Enter any special instructions here."></textarea><br><br>
+                        <input id="send-order" type="submit" value="Order">
+                        <!button to submit cheesecake order>
+
+            </div>
+
+            <!Hover Dropdown Menu starter code from https://www.w3schools.com/howto/howto_css_dropdown.asp>
+                <!dropdown menu to change the month>
+                    <div id="background3">
+                        <h3>Total Orders for
+                            <div id="dropdown" class="dropdown">
+                                <button id="dropbtn" class="dropbtn">Jan.</button>
+                                <!button text is set to 'Jan.' by default>
+                                    <div id="dropdown-content" class="dropdown-content">
+                                        <a>Jan.</a>
+                                        <a>Feb.</a>
+                                        <a>Mar.</a>
+                                        <a>Apr.</a>
+                                        <a>May</a>
+                                        <a>Jun.</a>
+                                        <a>Jul.</a>
+                                        <a>Aug.</a>
+                                        <a>Sep.</a>
+                                        <a>Oct.</a>
+                                        <a>Nov.</a>
+                                        <a>Dec.</a>
+                                    </div>
+                            </div>
+                        </h3>
+
+                        <ul>
+                            <li>11 cherry</li>
+                            <li>17 chocolate</li>
+                            <li>31 plain</li>
+                        </ul>
+                    </div>
+        </div>
+
+
+        <!this section is initially hidden, but will be displayed when user presses 'order' button>
+            <div id="to-display">
+                Your order has been placed.
+                <h3>Order Details:</h3>
+                <div id="order-toppings"></div>
+                <div id="order-count"></div>
+                <div id="order-notes"></div>
+            </div>
+    </body>
+
+    </html>

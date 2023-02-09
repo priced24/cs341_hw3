@@ -1,0 +1,85 @@
+/* Dylan Price; January 31, 2023 */
+body {
+    background-color: lavender;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: pink;
+    text-shadow: 5px 5px 5px cornsilk;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* background for order section */
+#background2 {
+    background-color: bisque;
+}
+
+/* background for total orders section */
+#background3 {
+    background-color: cornsilk;
+}
+
+/* Homework 2 modifications */
+#to-display {
+    display: none;
+}
+
+/* Hover Dropdown Menu starter code from https://www.w3schools.com/howto/howto_css_dropdown.asp */
+/* dropdown button */
+.dropbtn {
+    background-color: skyblue;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 9px;
+    font-size: 15px;
+    border: none;
+}
+
+/* positions dropdown menu content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* dropdown list when cursor hovers over dropdown button */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    max-height: 150px;
+    overflow: scroll;
+    z-index: 1;
+}
+
+/* text for dropdown menu options */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* hovering over an option in dropdown list */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* show list of options when cursor is hovering over dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* changes button color when user is in the hover dropdown menu */
+.dropdown:hover .dropbtn {
+    background-color: #8cbed6;
+}
