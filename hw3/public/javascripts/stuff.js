@@ -1,3 +1,4 @@
+// Dylan Price; 8 February, 2023
 $(document).ready(function () {
     // when order button is pressed
     $("#send-order").click(function () {
