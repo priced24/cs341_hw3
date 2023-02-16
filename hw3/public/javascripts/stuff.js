@@ -31,9 +31,10 @@ $(document).ready(function () {
             var list = document.getElementById("orderList");
             while (document.getElementById("orderType")) {
                 document.getElementById("orderType").remove();
-                console.log("can you see this?");
+                console.log("can you see this?"); // console message to ensure functionality
             }
 
+            // while loop to total monthly order list with JSON array
             var i = 0
             while (data.data[i]) {
                 list.innerHTML += "<li id=orderType>" + data.data[i].topping + ": " + data.data[i].quantity +  "</li>";
