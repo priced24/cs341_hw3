@@ -22,5 +22,23 @@ $(document).ready(function () {
     // this will change the text of the hover dropdown menu button
     $("#dropdown").click(function (event) {
         $("#dropbtn").html("<b>" + $(event.target).text() + "</b>");
+
+        // issue POST to server
+        $.post("./orders", function(data) {
+            console.log(data);
+
+            // update total monthly order list at bottom of the page
+            var list = document.getElementById("orderList");
+            while (document.getElementById("orderType")) {
+                document.getElementById("orderType").remove();
+                console.log("can you see this?");
+            }
+
+            var i = 0
+            while (data.data[i]) {
+                list.innerHTML += "<li id=item>" + data.data[i].topping + " : " + data.data[i].quantity +  "</li>";
+                i++;
+            }
+        });
     });
 });

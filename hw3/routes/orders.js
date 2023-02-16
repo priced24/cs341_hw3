@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // function to JSON object
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     // create new JSON object
     const json = {
         error: null,
