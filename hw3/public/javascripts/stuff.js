@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             var i = 0
             while (data.data[i]) {
-                list.innerHTML += "<li id=item>" + data.data[i].topping + " : " + data.data[i].quantity +  "</li>";
+                list.innerHTML += "<li id=orderType>" + data.data[i].topping + ": " + data.data[i].quantity +  "</li>";
                 i++;
             }
         });

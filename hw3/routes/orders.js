@@ -7,9 +7,9 @@ router.post('/', function(req, res, next) {
     const json = {
         error: null,
         data: [
-            {"topping":"cherry", "quantity":"2"},
-            {"topping":"plain", "quantity":"6"},
-            {"topping":"chocolate", "quantity":"3"}
+            {"topping":"Cherry", "quantity":"2"},
+            {"topping":"Plain", "quantity":"6"},
+            {"topping":"Chocolate", "quantity":"3"}
         ]
     }
     res.send(json); // send JSON object to web /orders page
