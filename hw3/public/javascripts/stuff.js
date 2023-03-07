@@ -16,6 +16,10 @@ $(document).ready(function () {
             $("#order-notes").text('Notes: ' + notes);
             $("#to-clear").hide();
             $("#to-display").show();
+
+            $.post("/new_order", {quantity:count, topping:flavor, notes:notes}, function(data) {
+
+            });
         }
     });
 
@@ -24,9 +28,9 @@ $(document).ready(function () {
         $("#dropbtn").html("<b>" + $(event.target).text() + "</b>");
 
         // issue POST to server
-        $.post("./orders", function(data) {
+        $.post("./orders", {"month":$(event.target).text()}, function(data) {
             console.log(data);
-
+            
             // update total monthly order list at bottom of the page
             var list = document.getElementById("orderList");
             while (document.getElementById("orderType")) {

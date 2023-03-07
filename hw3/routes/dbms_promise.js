@@ -1,9 +1,10 @@
 /**
- * dbms.js
+ * dbms_promise.js
  *
  * This file contains functions for accessing the MySQL database
  * which contains the Cheesecake order data.
  *
+ * Updated by: Stelios Papoutsakis & Spencer Rose
  */
 
 exports.version = '0.0.1';
@@ -12,10 +13,10 @@ exports.version = '0.0.1';
 var mysql = require('mysql'),
     async = require('async');
 
-var host = "35.231.96.52";    //from GCloud instance (change to match your db)
+var host = "34.105.25.207";    //from GCloud instance (change to match your db)
 var database = "CHEESECAKE";  //database name
-var user = "student";         //username (change to match your db)
-var password = "intoPDX411";  //password (change to match your db, yes this is very poor practice)
+var user = "root";         //username (change to match your db)
+var password = "8c&vF*L&br258@Z";  //password (change to match your db, yes this is very poor practice)
 
 /**
  * dbquery
@@ -24,20 +25,17 @@ var password = "intoPDX411";  //password (change to match your db, yes this is v
  * to the caller
  *
  * @param query     the SQL query to perform (e.g., "SELECT * FROM ...")
- * @param callback  the callback function to call with two values
- *                   error - (or 'false' if none)
- *                   results - as given by the mysql client
  */
-exports.dbquery = function(query_str, callback) {
-
+exports.dbquery = function(query_str) {
+  return new Promise((resolve, reject) => {
     var dbclient;
     var results = null;
-    
+
     async.waterfall([
 
         //Step 1: Connect to the database
         function (callback) {
-            console.log("\n** creating connection.");
+            //console.log("\n** creating connection.");
             dbclient = mysql.createConnection({
                 host: host,
                 user: user,
@@ -50,13 +48,13 @@ exports.dbquery = function(query_str, callback) {
 
         //Step 2: Issue query
         function (results, callback) {
-            console.log("\n** retrieving data");
+            //console.log("\n** retrieving data");
             dbclient.query(query_str, callback);
         },
 
         //Step 3: Collect results
         function (rows, fields, callback) {
-            console.log("\n** dumping data:");
+            //console.log("\n** dumping data:");
             results = rows;
             console.log("" + rows);
             callback(null);
@@ -68,10 +66,10 @@ exports.dbquery = function(query_str, callback) {
         if (err) {
             console.log("Database query failed.  sad");
             console.log(err);
-            callback(err, null);
+            reject(new Error(err, null));
         } else {
             console.log("Database query completed.");
-            callback(false, results);
+            resolve(results);
         }
 
         //close connection to database
@@ -79,4 +77,5 @@ exports.dbquery = function(query_str, callback) {
 
     });
 
+  });
 }//function dbquery
